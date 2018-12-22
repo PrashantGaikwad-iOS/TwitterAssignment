@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -41,6 +41,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    private func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
+    }
 
 }
 
+
+
+//        Access token & access token secret
+//        1025276369780068352-Ezg5OyvmbQD2OQlWzoDnpt17xEHS1X (Access token)
+//        5cnXRMNmEe4SFZmzcM1TjPDqvPQZYLSnTYTJ4mDTpZb3I (Access token secret)
+
+//        Consumer API keys
+//        rLRYJTvwVzeQlHY9TV1QusdKl (API key)
+//        cm70olAkbugHWjl7tSRCEsKhxfbtdnX9KnTJCk919aTKCMSo06 (API secret key)
+
+//TWTRTwitter.sharedInstance().start(withConsumerKey: "rLRYJTvwVzeQlHY9TV1QusdKl", consumerSecret: "cm70olAkbugHWjl7tSRCEsKhxfbtdnX9KnTJCk919aTKCMSo06")
+
+// using TwitterKit
+//        TWTRTwitter.sharedInstance().logIn {
+//            (session, error) -> Void in
+//            if (session != nil) {
+//
+//                print(session?.userName)
+//                print(session?.userID)
+//            } else {
+//                print("error")
+//
+//            }
+//        }
